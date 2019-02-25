@@ -1,12 +1,18 @@
 package com.example.collector;
 
-import org.springframework.boot.SpringApplication;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.kafka.annotation.KafkaListener;
 
-@SpringBootApplication public class CollectorApplication {
+@SpringBootApplication
+@Slf4j
+public class CollectorApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CollectorApplication.class, args);
+		new SpringApplicationBuilder(CollectorApplication.class).web(WebApplicationType.NONE).run(args);
+
 	}
 
 }
